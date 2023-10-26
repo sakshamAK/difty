@@ -14,12 +14,8 @@ const openai = new OpenAI({
 })
 
 app.get("/",(req,res)=>{
-    res.send("Welcome to OPENAI");
+    res.send("Welcome to Difty");
 })
-
-name 
-keyword 
-context
 
 app.post("/message",async (req, res)=>{
     try {
@@ -32,7 +28,6 @@ app.post("/message",async (req, res)=>{
         })
     }
     catch ( error ){
-        console.log("entes");
         console.error(error);
     }
 })
