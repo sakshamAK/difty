@@ -19,12 +19,18 @@ app.get("/",(req,res)=>{
 
 app.post("/message",async (req, res)=>{
     try {
+        const from = req.body.from;
+        const to = req.body.to;
+        const info = req.body.info;
+        const content = req.body.content;
+
+        const prompt = "Write a " + content + " on behalf of " + from + " to " + to + " based on following information in about 30 words " + info; 
         const aiResponse = await openai.chat.completions.create({
             model: "gpt-3.5-turbo",
-            messages: [{"role": "system", "content": "Can you write a poem for me to ask forgiveness from a close friend on forgetting his birthday."}]
+            messages: [{"role": "system", "content": prompt}]
         })
         res.json({
-            ai_response : aiResponse.choices[0].message.content,
+            generated_gift : aiResponse.choices[0].message.content,
         })
     }
     catch ( error ){
