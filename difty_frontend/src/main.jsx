@@ -5,11 +5,21 @@ import "./index.css";
 import { Provider } from "react-redux";
 import { store } from "./store.js";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Gift } from "./Gift.jsx";
+import { ChooseBg } from "./chooseBg.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />
+  },
+  {
+	path: "/generated_gift",
+	element: <Gift />
+  },
+  {
+	path: "/choose-bg",
+	element: <ChooseBg />
   }
 ])
 
