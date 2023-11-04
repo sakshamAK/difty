@@ -4,6 +4,7 @@ const initialState = {
 	content: { from: "", to: "", content: "", info: "" },
     output: "",
     bg: "",
+	heading: "",
 };
 
 export const generateTextSlice = createSlice({
@@ -11,7 +12,13 @@ export const generateTextSlice = createSlice({
 	initialState,
 	reducers: {
 		addContent: (state, { payload }) => {
-			state.content =  payload
+			state.content =  payload;
+			if(payload === "poem") 
+				state.heading = "A Poem to Remember Us";
+			else if(payload === "story")
+				state.heading = "A Story about the Moments"
+			else 
+				state.heading = "A Chronicle of Joyful Moment";
 		},
 		addFrom: (state, { payload }) => {
             state.from =  payload
@@ -27,7 +34,7 @@ export const generateTextSlice = createSlice({
         },
         addBgImage: (state, { payload }) => {
             state.bg = payload;
-        }
+        },
 	},
 });
 
