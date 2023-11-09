@@ -49,10 +49,24 @@ export default {
 			},
 			fontFamily: {
 				baloo: ["'Baloo 2'", "sans-serif"],
+				inter: ["'Inter'", "sans-serif"],
 				playpen: ["'Playpen Sans'", "cursive"],
+				kalam: ["'Kalam'", "cursive"],
 			},
 			minHeight: {
 				half: "50vh"
+			},
+			colors: {
+				"difty-orange": "#F95738",
+			},
+			borderRadius: {
+				"4xl": "2.5rem"
+			},
+			boxShadow: {
+				"2xl": "0 0px 50px -12px rgb(0 0 0 / 0.25);"
+			},
+			aspectRatio: {
+				"a4": "0.6"
 			}
 		},
 	},

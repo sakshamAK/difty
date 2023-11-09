@@ -6,7 +6,8 @@ import { Provider } from "react-redux";
 import { store } from "./store.js";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Gift } from "./Gift.jsx";
-import { ChooseBg } from "./chooseBg.jsx";
+import { SharableLink } from "./SharableLink.jsx";
+import { Waitlist } from "./waitlist.jsx";
 
 const router = createBrowserRouter([
   {
@@ -18,8 +19,12 @@ const router = createBrowserRouter([
 	element: <Gift />
   },
   {
-	path: "/choose-bg",
-	element: <ChooseBg />
+	path: "/:id",
+	element: <SharableLink />
+  },
+  {
+	path: "/waitlist",
+	element: <Waitlist />
   }
 ])
 

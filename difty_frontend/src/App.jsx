@@ -1,6 +1,8 @@
 import "./App.css";
 import axios from "axios";
-import temp from "./assets/template.png";
+import dots from "./assets/wp1.jpeg";
+import dots1 from "./assets/wp2.jpeg";
+import dots2 from "./assets/wp3.jpeg";
 import { useDispatch, useSelector } from "react-redux";
 import {
 	addContent,
@@ -9,18 +11,21 @@ import {
 	addInfo,
 	generatedGift,
 } from "./redux/slices/generateTextSlice";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Toaster, toast } from "react-hot-toast";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 function App() {
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 	const content = useSelector((state) => state.gptContent);
+	const [dims, setDims] = useState("h-0");
 
-	const generateText = async () => {
+	const showTransition = async () => {
 		if (!content.content || !content.info || !content.to || !content.from) {
 			toast.error("Please fill all fields!");
 			return;
 		}
+		setDims("h-screen");
 		const res = await axios.post("http://localhost:3000/message", content);
 		dispatch(generatedGift(res.data.generated_gift));
 	};
@@ -31,16 +36,42 @@ function App() {
 		dispatch(addFrom(""));
 		dispatch(addTo(""));
 	}, []);
+	console.log(content.output);
+	useEffect(() => {
+		if (content.output) {
+			navigate("/generated_gift");
+		}
+	}, [navigate, content.output]);
 
 	return (
-		<main className="flex flex-col min-h-screen justify-around font-playpen items-center bg-pinkLamaBunny bg-cover bg-fixed overflow-hidden">
+		<div
+			className={`overflow-x-hidden flex flex-col py-10 px-8 items-center justify-between min-h-screen transition-all delay-75 font-kalam text-difty-orange`}
+		>
 			<Toaster />
-			<div className="flex flex-col items-center gap-4">
-				<h1 className="text-4xl font-bold italic">Difty</h1>
-				<div className="flex items-center w-full justify-evenly gap-8">
-					<img src={temp} className="h-56 w-auto max-w-screen-2xl" />
+			<div className="flex items-center w-full">
+				<h1 className="text-xl">DIFTY</h1>
+			</div>
+			<div
+				className={`flex flex-col justify-around items-center overflow-hidden bg-difty-orange absolute top-0 left-0 z-10 w-screen transition-all duration-500 ${dims}`}
+			>
+				<div className=" bg-white shadow-2xl rounded-4xl -rotate-6 p-4 w-1/2 h-1/3 aspect-video">
+					<img src={dots} className="h-full rounded-3xl" />
 				</div>
-				<div className="flex items-center justify-around w-1/2">
+				<span className="loader"></span>
+			</div>
+			<div className="flex items-center gap-6">
+				<div className=" bg-white shadow-2xl rounded-4xl -rotate-6 p-4 w-40 h-60 aspect-video">
+					<img src={dots} className="h-full rounded-3xl" />
+				</div>
+				<div className=" bg-white shadow-2xl rounded-4xl -rotate-6 p-4 w-40 h-60 aspect-video">
+					<img src={dots1} className="h-full rounded-3xl" />
+				</div>
+				<div className=" bg-white shadow-2xl rounded-4xl -rotate-6 p-4 w-40 h-60 aspect-video">
+					<img src={dots2} className="h-full rounded-3xl" />
+				</div>
+			</div>
+			<div className="flex flex-col gap-4 w-full">
+				<div className="flex justify-around">
 					<div className="flex items-center gap-2">
 						<input
 							type="radio"
@@ -49,7 +80,10 @@ function App() {
 							value="poem"
 							onClick={(e) => dispatch(addContent(e.target.value))}
 						/>
-						<label htmlFor="poem" className="text-lg font-semibold">
+						<label
+							htmlFor="poem"
+							className="text-lg font-semibold text-gray-500"
+						>
 							Poem
 						</label>
 					</div>
@@ -61,50 +95,55 @@ function App() {
 							value="story"
 							onClick={(e) => dispatch(addContent(e.target.value))}
 						/>
-						<label htmlFor="story" className="text-lg font-semibold">
+						<label
+							htmlFor="story"
+							className="text-lg font-semibold text-gray-500"
+						>
 							Story
 						</label>
 					</div>
 				</div>
-			</div>
-			<div className="flex flex-col items-center gap-4 w-11/12 bg-gray-500/40 py-8 rounded-2xl font-baloo">
-				<div className="flex flex-col w-10/12">
-					<label htmlFor="whoFor">Who is this for?</label>
+				<div className="flex flex-col">
+					{/* <label className="pl-3 text-black font-inter">What&apos;s Your Name?</label> */}
 					<input
 						type="text"
-						className="py-2 px-4"
-						id="whoFor"
-						placeholder="Dumbo, Chikku, Mikki"
-						onChange={(e) => dispatch(addTo(e.target.value))}
-					/>
-				</div>
-				<div className="flex flex-col w-10/12">
-					<label htmlFor="yourName">Your Name?</label>
-					<input
-						type="text"
-						className="py-2 px-4"
-						id="yourName"
-						placeholder="Your one in a million friend"
+						placeholder="What's Your Name?"
+						className="rounded-2xl outline-none border-none bg-gray-100 p-4 px-6"
 						onChange={(e) => dispatch(addFrom(e.target.value))}
 					/>
 				</div>
-				<div className="flex flex-col w-10/12">
-					<label htmlFor="moreInfo">Tell us more...</label>
+				<div className="flex flex-col">
+					{/* <label className="pl-3 text-black font-inter">Your Friend&apos;s Name?</label> */}
+					<input
+						type="text"
+						placeholder="Your Friend's Name?"
+						className="rounded-2xl outline-none border-none bg-gray-100 p-4 px-6"
+						onChange={(e) => dispatch(addTo(e.target.value))}
+					/>
+				</div>
+				<div className="flex flex-col">
+					{/* <label className="pl-3 text-black font-inter">Anything You Want to Add?</label> */}
 					<textarea
-						className="p-4 resize-none"
-						placeholder="Hey Dumbo! Happy Belated Birthday!🥳"
+						placeholder="Anything You Want to Add?"
+						className="rounded-2xl outline-none border-none bg-gray-100 p-4 px-6"
 						onChange={(e) => dispatch(addInfo(e.target.value))}
 					></textarea>
 				</div>
-				<Link
-					to="/generated_gift"
-					className="bg-baby-orange-500 py-2 px-8 cursor-pointer rounded-md font-bold text-white"
-					onClick={generateText}
+				<button
+					className="px-4 py-3 font-bold self-center bg-difty-orange text-white w-max rounded-2xl"
+					onClick={showTransition}
 				>
-					Dift it!
-				</Link>
+					Dift Up!
+				</button>
 			</div>
-		</main>
+			<footer className="flex flex-col gap-2 font-inter text-black">
+				<div>© Difty Gifty Inc. 2023</div>
+				<div className="flex gap-4 justify-between font-bold">
+					<p>Instagram</p>
+					<p>Twitter</p>
+				</div>
+			</footer>
+		</div>
 	);
 }
 
