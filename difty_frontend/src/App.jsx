@@ -1,4 +1,5 @@
 import "./App.css";
+// <<<<<<< HEAD
 import axios from "axios";
 import dots from "./assets/wp1.jpeg";
 import dots1 from "./assets/wp2.jpeg";
@@ -42,8 +43,20 @@ function App() {
 			navigate("/generated_gift");
 		}
 	}, [navigate, content.output]);
+// =======
+// import { Link } from "react-router-dom";
+// import GenerateMessage from "./GenerateMessage";
+// import Title from "./Components/LandingPageComponents/Title";
+// import Feature1 from "./Components/LandingPageComponents/Feature1";
+// import Feature2 from "./Components/LandingPageComponents/Feature2";
+// import Feature3 from "./Components/LandingPageComponents/Feature3";
+// import Feature4 from "./Components/LandingPageComponents/Feature4";
+// import Footer from "./Components/LandingPageComponents/footer";
+// >>>>>>> d8ffc2b531bf03ba0d87f3f56d9a32c8bbc6ba1b
 
+// function App(){
 	return (
+// <<<<<<< HEAD
 		<div
 			className={`overflow-x-hidden flex flex-col py-10 px-8 items-center justify-between min-h-screen transition-all delay-75 font-kalam text-difty-orange`}
 		>
@@ -145,6 +158,25 @@ function App() {
 			</footer>
 		</div>
 	);
+// =======
+// 		<div>
+// 			<Landing></Landing>
+// 		</div>
+// 	)
+// }
+
+// function Landing(){
+// 	return (
+// 		<>
+// 		  <Title></Title>
+// 		  <Feature1></Feature1>
+// 		  <Feature2></Feature2>
+// 		  <Feature3></Feature3>
+// 		  <Feature4></Feature4>
+// 		  <Footer></Footer>
+// 		</>
+// 	  );
+// >>>>>>> d8ffc2b531bf03ba0d87f3f56d9a32c8bbc6ba1b
 }
 
 export default App;
