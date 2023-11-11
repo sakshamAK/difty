@@ -14,37 +14,37 @@ export const Gift = () => {
 	const navigate = useNavigate();
 	const [count, setCount] = useState(0);
 	const templates = [
-		"bg-flora",
-		"bg-balls",
-		"bg-stroke",
-		"bg-bnw",
-		"bg-elf",
-		"bg-lines",
-		"bg-waves",
-		"bg-og",
-		"bg-rp",
-		"bg-dots",
-		"bg-pinkLamaBunny",
-		"bg-twoHearts",
-		"bg-blueHearts",
-		"bg-purpleHearts",
-		"bg-poppedSkinHearts",
-		"bg-heartsInHeart",
-		"bg-bigBlueHearts",
-		"bg-cornerBigHearts",
-		"bg-blueFlowers",
-		"bg-grayflowers",
-		"bg-artisticFlowers",
-		"bg-pinkJapeneseFlowers",
-		"bg-artisticCornerFlowers",
-		"bg-blueCat",
-		"bg-bottomFlowers",
-		"bg-cuteFlowers",
+		"bg-wp1",
+		"bg-wp2",
+		"bg-wp3",
+		"bg-wp4",
+		"bg-wp5",
+		"bg-wp6",
+		"bg-wp7",
+		"bg-wp8",
+		"bg-wp9",
+		"bg-wp10",
+		"bg-wp11",
+		"bg-wp12",
+		"bg-wp13",
+		"bg-wp14",
+		"bg-wp15",
+		"bg-wp16",
+		"bg-wp17",
+		"bg-wp18",
+		"bg-wp19",
+		"bg-wp20",
+		"bg-wp21",
+		"bg-wp22",
+		"bg-wp23",
+		"bg-wp24",
+		"bg-wp25",
+		"bg-wp26",
 	];
 
 	const generateLink = () => {
 		dispatch(addBgImage(templates[count]));
-		navigate(`/${uuid()}`)
+		navigate(`/gift/${uuid()}`)
 	}
 
 	return (

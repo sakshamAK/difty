@@ -8,11 +8,16 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Gift } from "./Gift.jsx";
 import { SharableLink } from "./SharableLink.jsx";
 import { Waitlist } from "./waitlist.jsx";
+import { CreateGift } from "./CreateGift.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />
+  },
+  {
+    path: "/create_gift",
+    element: <CreateGift />
   },
   {
 	path: "/generated_gift",
