@@ -24,7 +24,7 @@ app.post("/message",async (req, res)=>{
         const info = req.body.info;
         const content = req.body.content;
 
-        const prompt = "Write a " + content + " on behalf of " + from + " to " + to + " based on following information in about 30 words " + info; 
+        const prompt = "Write a " + content + " on behalf of " + from + " to " + to + " based on following information in exactly 8 lines " + info; 
         const aiResponse = await openai.chat.completions.create({
             model: "gpt-3.5-turbo",
             messages: [{"role": "system", "content": prompt}]

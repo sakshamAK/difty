@@ -46,6 +46,8 @@ export default {
 				wp24: 'url("./assets/wp25.jpeg")',
 				wp25: 'url("./assets/wp26.jpeg")',
 				wp26: 'url("./assets/wp27.jpeg")',
+				bg1: 'url("./assets/bg1.jpg")',
+				bg2: 'url("./assets/bg2.jpg")',
 			},
 			fontSize: {
 				xmd: "11px",
@@ -66,7 +68,8 @@ export default {
 			},
 			colors: {
 				"difty-orange": "#F95738",
-				"difty-orange-400": "#FFEFD5"
+				"difty-orange-400": "#FFEFD5",
+				"mygray": "#f4f5fa",
 			},
 			borderRadius: {
 				"4xl": "2.5rem"

@@ -54,7 +54,7 @@ export const Gift = () => {
 			<div className="flex items-center w-full">
 				<h1 className="text-xl">DIFTY</h1>
 			</div>
-			<div className="flex flex-col gap-10 my-auto items-center justify-center h-full">
+			<div className="flex flex-col gap-5 my-auto items-center justify-center h-full">
 				<h1 className="text-4xl font-bold font-kalam">Your Gift !</h1>
 				<div className={`flex items-center p-2 text-black`}>
 					<img
@@ -65,13 +65,13 @@ export const Gift = () => {
 						className="fixed cursor-pointer left-4 top-1/2 bg-difty-orange shadow-sm shadow-black p-2 rounded-full h-10 w-10"
 					/>
 					<p
-						className={`bg-white shadow-2xl rounded-3xl p-4 w-full aspect-a4 ${templates[count]} bg-cover`}
+						className={`bg-white shadow-2xl rounded-3xl p-4 w-full ${templates[count]} bg-cover`}
 					>
-						<div className="h-full rounded-2xl overflow-hidden bg-white/80 p-4">
-							<h1 className=" text-center w-full text-2xl font-bold">
+						<div className="rounded-2xl h-full bg-white/80 p-4 flex flex-col gap-4">
+							<h1 className=" text-center w-full text-xl font-bold">
 								{heading}
 							</h1>
-							<div className="leading-relaxed">{output}</div>
+							<div className="whitespace-pre-wrap">{output}</div>
 						</div>
 					</p>
 					<img
@@ -83,7 +83,7 @@ export const Gift = () => {
 					/>
 				</div>
 			</div>
-			<button className="bg-difty-orange py-3 px-6 rounded-2xl font-bold text-white text-xl" onClick={generateLink}>
+			<button className="bg-difty-orange py-3 px-6 rounded-2xl font-bold text-white text-xl my-5 mb-10" onClick={generateLink}>
 				Generate Link
 			</button>
 		</div>

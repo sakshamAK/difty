@@ -44,11 +44,11 @@ export function CreateGift() {
 
 	return (
 		<div
-			className={`overflow-x-hidden flex bg-difty-orange-400 flex-col py-10 px-8 items-center justify-between min-h-screen transition-all delay-75 font-kalam text-difty-orange`}
+			className={`overflow-x-hidden bg-bg2 bg-no-repeat bg-mygray bg-contain flex flex-col py-10 px-8 items-center justify-between min-h-screen transition-all delay-75 font-kalam text-difty-orange`}
 		>
 			<Toaster />
 			<div className="flex items-center w-full">
-				<h1 className="text-xl font-bold">DIFTY</h1>
+				<h1 className="text-xl">DIFTY</h1>
 			</div>
 			<div
 				className={`flex flex-col justify-around items-center overflow-hidden bg-difty-orange absolute top-0 left-0 z-10 w-screen transition-all duration-500 ${dims}`}
@@ -85,6 +85,28 @@ export function CreateGift() {
 				{/* <div className=" bg-white shadow-2xl rounded-4xl -rotate-6 w-40 h-60"> */}
 				<div className="bg-wp3 bg-cover p-3 shadow-2xl rounded-4xl -rotate-6 w-40 h-60">
 					<div className="bg-white/50 flex flex-col text-black py-4 px-2 rounded-3xl items-center h-full">
+						<h1 className="font-bold text-center">Happy Anniversary</h1>
+						<p className="text-xsm px-1 my-auto">
+							In the calendar of love, a date I
+							<br />
+							Apologies wrapped in a forgetful
+							<br />
+							Anniversary bells, I let them snooze,
+							<br />
+							My memory's a maze, and I'm the confused muse.
+							<br />
+							<br />
+							Forgive the lapse, my memory's a bit
+							<br />
+							Next year, I'll set a reminder—maybe two, just to be crazy!
+							<br />
+						</p>
+					</div>
+				</div>
+				{/* </div> */}
+				{/* <div className=" bg-white shadow-2xl rounded-4xl -rotate-6 w-40 h-60"> */}
+				<div className="bg-wp8 bg-contain p-3 shadow-2xl rounded-4xl -rotate-6 w-40 h-60">
+					<div className="bg-white/50 flex flex-col text-black py-4 px-2 rounded-3xl items-center h-full">
 						<h1 className="font-bold">Happy Birthday</h1>
 						<p className="text-xsm px-1 my-auto">
 							In the land of giggles and high-fives, <br />
@@ -104,37 +126,20 @@ export function CreateGift() {
 				{/* <div className=" bg-white shadow-2xl rounded-4xl -rotate-6 w-40 h-60"> */}
 				<div className="bg-wp6 bg-cover p-3 shadow-2xl rounded-4xl -rotate-6 w-40 h-60">
 					<div className="bg-white/50 flex flex-col text-black py-4 px-2 rounded-3xl items-center h-full">
-						<h1 className="font-bold">Happy Birthday</h1>
+						<h1 className="font-bold">I am Sorry</h1>
 						<p className="text-xsm px-1 my-auto">
-							In the land of giggles and high-fives, <br />
-							Where cake fights and laughter thrives, <br />
-							We reminisce those wild, fun days,
-							<br /> Of made-up memories in sunlit haze.
+							In the garden of goals, I planted a seed,
 							<br />
-							<br /> On birthdays past, we soared so high,
+							But oops, it seems it's a tumbleweed.
 							<br />
-							Riding unicorns across the sky, Eating clouds like cotton candy,
+							I'm sorry for the letdown, the dream that deflates,
 							<br />
-							In a sugar rush, life felt so dandy! <br />
-						</p>
-					</div>
-				</div>
-				{/* </div> */}
-				{/* <div className=" bg-white shadow-2xl rounded-4xl -rotate-6 w-40 h-60"> */}
-				<div className="bg-wp7 bg-cover p-3 shadow-2xl rounded-4xl -rotate-6 w-40 h-60">
-					<div className="bg-white/50 flex flex-col text-black py-4 px-2 rounded-3xl items-center h-full">
-						<h1 className="font-bold">Happy Birthday</h1>
-						<p className="text-xsm px-1 my-auto">
-							In the land of giggles and high-fives, <br />
-							Where cake fights and laughter thrives, <br />
-							We reminisce those wild, fun days,
-							<br /> Of made-up memories in sunlit haze.
 							<br />
-							<br /> On birthdays past, we soared so high,
+							So here's my sorry, wrapped in a rhyme,
 							<br />
-							Riding unicorns across the sky, Eating clouds like cotton candy,
+							Forgive my misfire, I'll bounce back in time.
 							<br />
-							In a sugar rush, life felt so dandy! <br />
+							Failure's a detour, not the journey's end,
 						</p>
 					</div>
 				</div>
@@ -154,7 +159,7 @@ export function CreateGift() {
 							/>
 							<label
 								htmlFor="poem"
-								className="text-lg font-semibold text-black"
+								className="text-lg font-semibold text-gray-500"
 							>
 								Poem
 							</label>
@@ -169,7 +174,7 @@ export function CreateGift() {
 							/>
 							<label
 								htmlFor="story"
-								className="text-lg font-semibold text-black"
+								className="text-lg font-semibold text-gray-500"
 							>
 								Story
 							</label>
@@ -185,7 +190,7 @@ export function CreateGift() {
 							/>
 							<label
 								htmlFor="game"
-								className="text-lg font-semibold text-black"
+								className="text-lg font-semibold text-gray-500"
 							>
 								Mini Game
 							</label>
@@ -213,7 +218,7 @@ export function CreateGift() {
 					<textarea
 						placeholder='Tell Us More...                                      "Happy Belated Birthday"                                      "I am Sorry"'
 						className="rounded-2xl outline-none border-none bg-white p-4 px-6"
-						rows={4}
+						rows={3}
 						onChange={(e) => dispatch(addInfo(e.target.value))}
 					></textarea>
 				</div>

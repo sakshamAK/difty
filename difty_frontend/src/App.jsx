@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useState } from "react";
-import dots from "./assets/wp1.jpeg";
+import difty from "./assets/difty_logo.svg";
 import { Link } from "react-router-dom";
 
 const App = () => {
@@ -18,52 +18,53 @@ const App = () => {
 
 	return (
 		<div
-			className={`flex flex-col py-10 px-8 items-center min-h-screen transition-all delay-75 font-kalam ${textColor}`}
+			className={`flex bg-bg1 bg-contain flex-col py-10 px-8 items-center min-h-screen transition-all delay-75 font-kalam ${textColor}`}
 		>
 			<div className="flex items-center w-full">
 				<h1 className="text-xl">DIFTY</h1>
 			</div>
-			<div className="flex flex-col items-center w-full gap-20 my-auto p-12">
-				<div className="bg-wp8 bg-contain p-4 shadow-2xl rounded-4xl -rotate-6 w-full h-85">
+			<div className="flex flex-col items-center w-full gap-10 my-auto p-10 h-screen">
+				<div className="bg-wp8 bg-contain p-4 shadow-2xl rounded-4xl -rotate-6 w-full h-1/2">
 					<div className="bg-white/50 flex flex-col text-black py-4 px-2 rounded-3xl items-center h-full">
-						<h1 className="font-bold text-2xl">Happy Birthday</h1>
+						<h1 className="font-bold text-2xl">Something New</h1>
 						<p className="text-xmd px-1 my-auto">
-							In the land of giggles and high-fives, <br />
-							Where cake fights and laughter thrives, <br />
-							We reminisce those wild, fun days,
-							<br /> Of made-up memories in sunlit haze.
+							I'm the first chapter in life's wild brew,
 							<br />
-							<br /> On birthdays past, we soared so high,
+							A quirky concoction, a debut so true.
 							<br />
-							Riding unicorns in the sky, <br />
-							Eating clouds like candy,
+							In the carnival of beginnings, I'm the parade,
 							<br />
-							In a sugar rush, life felt so dandy! <br />
+							A sassy start, in shades of lemonade.
 							<br />
-							We made a fort out of a cane.
 							<br />
-							Those crazy moments, are in our lore,
+							The canvas is blank, but I wield the brush,
 							<br />
-							Creating memories, wanting more.
+							A whimsical journey, a playful hush.
+							<br />
+							I'm the dawn's laughter, the morning's cue,
+							<br />
+							A mischievous prelude to something brand new!
+							<br />
 						</p>
 					</div>
 				</div>
-				<div className="flex flex-col gap-1 items-center font-inter">
-					<h1 className="text-7xl font-bold font-kalam">Difty</h1>
+				<div className="flex flex-col items-center font-inter ml-5">
+					{/* <h1 className="text-7xl font-bold font-kalam">Difty</h1>
 					<p
 						className={`${
 							bgColor !== "bg-white" ? "text-gray-500" : "text-white"
 						} transition-all delay-100`}
 					>
 						Color Your Wishes !
-					</p>
+					</p> */}
+					<img src = {difty} style={{height: "8rem"}} />
 					<Link
 						to="/create_gift"
-						className={`text-center px-4 py-3 font-bold w-full mt-8 ${bgColor} ${
+						className={`text-center mt-2 font-kalam px-4 py-3 text-xl font-bold w-44 self-start ${bgColor} ${
 							bgColor === "bg-white" ? "text-difty-orange" : "text-white"
 						} rounded-2xl min-w-max`}
 					>
-						Dift Up!
+						Start Difting!
 					</Link>
 				</div>
 			</div>
