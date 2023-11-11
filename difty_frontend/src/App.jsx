@@ -2,6 +2,7 @@ import "./App.css";
 import React, { useState } from "react";
 import difty from "./assets/difty_logo.svg";
 import { Link } from "react-router-dom";
+import logo from "./assets/difty_logo.svg";
 
 const App = () => {
 	const [dims, setDims] = useState("h-0");
@@ -18,16 +19,16 @@ const App = () => {
 
 	return (
 		<div
-			className={`flex bg-bg1 bg-contain flex-col py-10 px-8 items-center min-h-screen transition-all delay-75 font-kalam ${textColor}`}
+			className={`flex bg-bg1 bg-contain flex-col items-center min-h-screen transition-all delay-75 font-kalam ${textColor}`}
 		>
-			<div className="flex items-center w-full">
-				<h1 className="text-xl">DIFTY</h1>
-			</div>
 			<div className="flex flex-col items-center w-full gap-10 my-auto p-10 h-screen">
-				<div className="bg-wp8 bg-contain p-4 shadow-2xl rounded-4xl -rotate-6 w-full h-1/2">
+				<div className="flex items-center w-full">
+					<img src={logo} className="h-10" />
+				</div>
+				<div className="bg-wp8 bg-contain p-4 shadow-2xl rounded-4xl -rotate-6 w-11/12 h-3/5">
 					<div className="bg-white/50 flex flex-col text-black py-4 px-2 rounded-3xl items-center h-full">
-						<h1 className="font-bold text-2xl">Something New</h1>
-						<p className="text-xmd px-1 my-auto">
+						<h1 className="font-bold text-3xl">Something New</h1>
+						<p className="text-sm px-1 my-auto">
 							I'm the first chapter in life's wild brew,
 							<br />
 							A quirky concoction, a debut so true.
@@ -57,7 +58,7 @@ const App = () => {
 					>
 						Color Your Wishes !
 					</p> */}
-					<img src = {difty} style={{height: "8rem"}} />
+					<img src={difty} style={{ height: "8rem" }} />
 					<Link
 						to="/create_gift"
 						className={`text-center mt-2 font-kalam px-4 py-3 text-xl font-bold w-44 self-start ${bgColor} ${

@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import back from "./assets/back.svg";
 import next from "./assets/next.svg";
-import { addBgImage } from "./redux/slices/generateTextSlice";
+import logo from "./assets/difty_logo.svg";
+import { addBgImage, addLink } from "./redux/slices/generateTextSlice";
 import { v4 as uuid } from 'uuid';
 import { useNavigate } from "react-router-dom";
 
@@ -42,9 +44,17 @@ export const Gift = () => {
 		"bg-wp26",
 	];
 
-	const generateLink = () => {
+	const generateLink = async () => {
+		const generatedId = uuid();
+		dispatch(addLink(generatedId));
 		dispatch(addBgImage(templates[count]));
-		navigate(`/gift/${uuid()}`)
+		const data = {
+			generatedId,
+			message: output,
+			bg: bg ? bg : templates[count]
+		}
+		const res = await axios.post("http://localhost:3000/generateLink", data)
+		navigate(`/gift`)
 	}
 
 	return (
@@ -52,7 +62,7 @@ export const Gift = () => {
 			className={`overflow-x-hidden flex flex-col py-10 px-8 items-center min-h-screen transition-all delay-75 font-kalam text-difty-orange`}
 		>
 			<div className="flex items-center w-full">
-				<h1 className="text-xl">DIFTY</h1>
+				<img src={logo} className="h-10" />
 			</div>
 			<div className="flex flex-col gap-5 my-auto items-center justify-center h-full">
 				<h1 className="text-4xl font-bold font-kalam">Your Gift !</h1>

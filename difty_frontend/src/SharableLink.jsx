@@ -1,24 +1,28 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useSelector } from "react-redux";
 import difty from "./assets/difty_logo.svg";
+import { OutputGift } from "./OutputGift";
 
 export const SharableLink = () => {
-	const { bg, output, content, heading } = useSelector(
+	const { bg, output, sharableLink, heading } = useSelector(
 		(state) => state.gptContent
 	);
+	const linkRef = useRef();
+
+	const copyToClipBoard = () => {
+		navigator.clipboard.writeText(linkRef.current.textContent)
+	}
 
 	return (
 		<div className={`flex flex-col items-center font-kalam h-screen p-6 pt-12`}>
-			<img src={difty} style={{ height: "8rem" }} />
-			<div className={`flex items-center text-black mt-4`}>
-				<p className={`bg-white shadow-2xl p-4 w-full ${bg} bg-cover`}>
-					<div className="h-full overflow-hidden bg-white/80 p-4 flex flex-col gap-4">
-						<h1 className=" text-center w-full text-2xl font-bold">
-							{heading}
-						</h1>
-						<div className="whitespace-pre-wrap">{output}</div>
-					</div>
-				</p>
+			<OutputGift output={output} bg={bg} heading={heading} />
+			<div className="border border-difty-orange border-solid rounded-2xl pl-4 mt-8 flex items-center gap-2">
+				<div className="w-44 overflow-hidden whitespace-nowrap" ref={linkRef}>
+					http://localhost:5173/gift/{sharableLink}
+				</div>
+				<button onClick={copyToClipBoard} className="px-4 py-3 font-bold self-center bg-difty-orange text-white w-max rounded-2xl">
+					Copy Link!
+				</button>
 			</div>
 		</div>
 	);

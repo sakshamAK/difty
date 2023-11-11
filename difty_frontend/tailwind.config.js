@@ -48,6 +48,7 @@ export default {
 				wp26: 'url("./assets/wp27.jpeg")',
 				bg1: 'url("./assets/bg1.jpg")',
 				bg2: 'url("./assets/bg2.jpg")',
+				bg3: 'url("./assets/bgd.jpg")',
 			},
 			fontSize: {
 				xmd: "11px",

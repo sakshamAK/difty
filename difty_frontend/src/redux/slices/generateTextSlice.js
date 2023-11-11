@@ -5,6 +5,7 @@ const initialState = {
     output: "",
     bg: "",
 	heading: "",
+	sharableLink: ""
 };
 
 export const generateTextSlice = createSlice({
@@ -35,9 +36,12 @@ export const generateTextSlice = createSlice({
         addBgImage: (state, { payload }) => {
             state.bg = payload;
         },
+        addLink: (state, { payload }) => {
+            state.sharableLink = payload;
+        },
 	},
 });
 
-export const { addContent, addFrom, addInfo, addTo, generatedGift, addBgImage } = generateTextSlice.actions;
+export const { addContent, addFrom, addInfo, addTo, generatedGift, addBgImage, addLink } = generateTextSlice.actions;
 
 export default generateTextSlice.reducer;

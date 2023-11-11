@@ -1,7 +1,4 @@
 import axios from "axios";
-import dots from "./assets/wp1.jpeg";
-import dots1 from "./assets/wp2.jpeg";
-import dots2 from "./assets/wp3.jpeg";
 import { useDispatch, useSelector } from "react-redux";
 import {
 	addContent,
@@ -10,6 +7,7 @@ import {
 	addInfo,
 	generatedGift,
 } from "./redux/slices/generateTextSlice";
+import logo from "./assets/difty_logo.svg";
 import { useNavigate } from "react-router-dom";
 import { Toaster, toast } from "react-hot-toast";
 import { useEffect, useState } from "react";
@@ -35,7 +33,6 @@ export function CreateGift() {
 		dispatch(addFrom(""));
 		dispatch(addTo(""));
 	}, []);
-	console.log(content.output);
 	useEffect(() => {
 		if (content.output) {
 			navigate("/generated_gift");
@@ -48,7 +45,7 @@ export function CreateGift() {
 		>
 			<Toaster />
 			<div className="flex items-center w-full">
-				<h1 className="text-xl">DIFTY</h1>
+				<img src={logo} className="h-10" />
 			</div>
 			<div
 				className={`flex flex-col justify-around items-center overflow-hidden bg-difty-orange absolute top-0 left-0 z-10 w-screen transition-all duration-500 ${dims}`}

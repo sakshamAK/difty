@@ -71,7 +71,7 @@ app.post("/generateLink",async (req,res)=>{
 
 app.get("/generateLink", async (req,res)=>{
     try{
-        const inputId = req.body.generatedId;
+        const inputId = req.query.generatedId;
         const gift = await SharedGift.find({generatedId:inputId})
         if ( gift ){
             res.json(gift[0]);
