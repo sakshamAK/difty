@@ -3,7 +3,22 @@ const cors = require('cors');
 const dotenv = require("dotenv");
 const OpenAI = require("openai");
 
+const mongoose = require('mongoose');
+
+const giftSchema = new mongoose.Schema({
+    generatedId: String,
+    message: String,
+    bg: String
+})
+
 dotenv.config();
+
+const SharedGift = mongoose.model('SharedGift' , giftSchema);
+const dbURI = process.env.MONGO_URI;
+mongoose.connect(dbURI);
+
+
+
 const app = express();
 
 app.use(cors());
@@ -34,10 +49,38 @@ app.post("/message",async (req, res)=>{
         })
     }
     catch ( error ){
-        console.error(error);
+        res.send(error)
     }
 })
 
+
+app.post("/generateLink",async (req,res)=>{
+    try{
+        const generatedId = req.body.generatedId;
+        const message = req.body.message;
+        const bg = req.body.bg;
+
+        const newGift = new SharedGift({generatedId , message , bg});
+        await newGift.save();
+        res.sendStatus(200);
+    }
+    catch(error){
+        res.send(error);
+    }
+})
+
+app.get("/generateLink", async (req,res)=>{
+    try{
+        const inputId = req.body.generatedId;
+        const gift = await SharedGift.find({generatedId:inputId})
+        if ( gift ){
+            res.json(gift[0]);
+        }
+    }
+    catch(error){
+        res.send(error);
+    }
+})
 app.listen(3000,()=>{
     console.log("server is running");
 })
