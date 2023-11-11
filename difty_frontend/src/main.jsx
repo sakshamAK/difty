@@ -19,7 +19,7 @@ const router = createBrowserRouter([
 	element: <Gift />
   },
   {
-	path: "/:id",
+	path: "/gift/:id",
 	element: <SharableLink />
   },
   {
