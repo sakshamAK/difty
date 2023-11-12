@@ -81,8 +81,18 @@ app.get("/generateLink", async (req,res)=>{
         res.send(error);
     }
 })
-app.listen(3000,()=>{
-    console.log("server is running");
-})
+
+mongoose.connect(dbURI).then(() => {
+    console.log('Connected to MongoDB');
+
+    // Start the server
+    app.listen(3000, () => {
+      console.log(`Server is running on port 3000`);
+    });
+  })
+  .catch((err) => {
+    console.error('Error connecting to MongoDB:', err);
+  });
+
 
 
